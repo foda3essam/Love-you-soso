@@ -240,43 +240,33 @@
 <div class="bg"></div>
 <div class="hearts-container" id="heartsContainer"></div>
 
-<!-- ============================================================
-     ✏️  قسم التعديل - غير القيم دي براحتك
-     ============================================================ -->
 <script>
   const CONFIG = {
-    // --- الصفحة الأولى ---
-    name:       "sosoجاهزه ",          // الاسم جوه القلب
-    sub:        "my everything",      // النص تحت الاسم
-    password:   "2342007",               // الباسورد
-    profileImg: "IMG-20260419-WA0004.jpg",                   // مسار صورة البروفايل مثلاً: "img/profile.jpg"
+    name:       "sosoجاهزه",
+    sub:        "my everything",
+    password:   "2342007",
+    profileImg: "IMG-20260419-WA0004.jpg",
 
-    // --- رسالة الحب ---
-    loveMsg: 'كل سنه ونتي قدامي بتكبري قدام عيني يبنتي واختي وصحبتي وحياتي وكل حاجه ليا بحبك اوي♥️🫂🥺 `,
+    // ✅ تم إصلاح علامات الاقتباس - استخدمنا apostrophe عادي بدل backtick
+    loveMsg: "كل سنه ونتي قدامي بتكبري قدام عيني يبنتي واختي وصحبتي وحياتي وكل حاجه ليا بحبك اوي \u2665\uFE0F\uD83E\uDEC2\uD83E\uDD7A",
 
-    // --- تاريخ البداية ---
-    startDate: "2025-05-28",          // بالصيغة YYYY-MM-DD
+    startDate: "2025-05-28",
 
-    // --- الصور ---
-    photo1:    "IMG-20260419-WA0005.jpg",      // مسار الصورة الأولى
+    photo1:    "IMG-20260419-WA0005.jpg",
     caption1:  "بحبك 💕",
-    photo2:    "IMG-20260419-WA0007.jpg",      // مسار الصورة الثانية
+    photo2:    "IMG-20260419-WA0007.jpg",
     caption2:  "ربنا يخليكي ليا 💝",
 
-    // --- الصفحة الأخيرة ---
     msg1: "بحبك اوي",
     msg2: "كل سنه و انتي معايا ي احلى حاجه عيني شافتها ❤️",
     msg3: "ربنا يخليكي ليا",
 
-    // --- زرار message (واتساب أو أي رابط) ---
     waLink: "https://wa.me/201201527717",
 
-    // --- الأغنية ---
-    songFile:  "Song.mp3",            // اسم ملف الأغنية (حطه جنب index.html)
+    songFile:  "Song.mp3",
     songTitle: "باين حبيت - عمرو دياب",
   };
 </script>
-<!-- ============================================================ -->
 
 
 <!-- PAGE 1: LOCK -->
@@ -385,7 +375,7 @@
     document.getElementById('audioEl').src                      = CONFIG.songFile;
 
     if (CONFIG.profileImg) {
-      document.getElementById('profilePicEl').innerHTML = `<img src="${CONFIG.profileImg}" alt="">`;
+      document.getElementById('profilePicEl').innerHTML = '<img src="' + CONFIG.profileImg + '" alt="">';
     }
   });
 
@@ -421,7 +411,7 @@
       setTimeout(() => w.classList.remove('show'), 2000);
     }
   }
-  document.getElementById('passInput').addEventListener('keydown', e => {
+  document.getElementById('passInput').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') checkPass();
   });
 
@@ -457,7 +447,7 @@
 
   function togglePlay() {
     if (audio.paused) {
-      audio.play().catch(()=>{});
+      audio.play().catch(function(){});
       playBtn.textContent = '⏸';
       thumb.classList.add('playing');
     } else {
@@ -467,13 +457,13 @@
     }
   }
 
-  audio.addEventListener('timeupdate', () => {
+  audio.addEventListener('timeupdate', function() {
     if (audio.duration) {
       bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
     }
   });
 
-  document.getElementById('progressWrap').addEventListener('click', e => {
+  document.getElementById('progressWrap').addEventListener('click', function(e) {
     const rect = e.currentTarget.getBoundingClientRect();
     audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
   });
@@ -481,10 +471,10 @@
   // autoplay on first interaction
   document.addEventListener('click', function startAudio() {
     if (audio.paused) {
-      audio.play().then(() => {
+      audio.play().then(function() {
         playBtn.textContent = '⏸';
         thumb.classList.add('playing');
-      }).catch(()=>{});
+      }).catch(function(){});
     }
     document.removeEventListener('click', startAudio);
   }, { once: true });
