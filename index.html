@@ -242,15 +242,15 @@
 
 <script>
   const CONFIG = {
-    name:       "sosoجاهزه",
-    sub:        "my everything",
-    password:   "2342007",
-    profileImg: "IMG-20260419-WA0004.jpg",
+    name:        "sosoجاهزه",
+    sub:         "my everything",
+    password:    "2342007",
+    profileImg:  "IMG-20260419-WA0004.jpg",
 
-    // ✅ تم إصلاح علامات الاقتباس - استخدمنا apostrophe عادي بدل backtick
-    loveMsg: "روح قلبي مش عارف ابدا منين ولا منين النهرده كبرتي قدام عيني سنه كبرتيها معايا عقبال كل سنين العمر يحياتي كل حاجه بالنسبالي بنتي وصحبتي واختي وحياتي وكل حاجه ليا  الدنيا وقفتك معايا اللي ملهاش نهايه وحبك و حنيتك الرهيبه حبيتك اكتر من نفسي من اول يوم شوفتك فيه ونا حياتى بقت حياه تانيه خالص ربنا اختارك ليا شريك ليا ف الدنيا دي ساندني وواقف معايا ف كل حاجه وشريك امين كمان اوي بحبك اوي بكل حاجه فيكي يروحي كامله من كل حاجه يحبيبتي بحبك بنكدك طبعا اللي عاجبني كدا كدا 😂🫠 ما علينا ربنا يدومك ليا نعمه ي احلي نعمه شافتها عيني وتدومي ليا روحي وقلبي وفرحتي وام عيالي انشالله ي احلي واحده ف الدنيا دي عيونك اللي دوا لكل حاجه ف حياتي حرفيا وضحكتك اللي بتاخدني ف حته بعيده عن الكل شوفت معاكي كل حاجه حلوه كل سنه ونتي طيبه ينصي التاني بنكبر سوا يروحي🫂♥️🥺",
+    loveMsg: "روح قلبي مش عارف ابدا منين ولا منين النهرده كبرتي قدام عيني سنه كبرتيها معايا عقبال كل سنين العمر يحياتي كل حاجه بالنسبالي بنتي وصحبتي واختي وحياتي وكل حاجه ليا  الدنيا وقفتك معايا اللي ملهاش نهايه وحبك و حنيتك الرهيبه حبيتك اكتر من نفسي من اول يوم شوفتك فيه ونا حياتى بقت حياه تانيه خالص ربنا اختارك ليا شريك ليا ف الدنيا دي ساندني وواقف معايا ف كل حاجه وشريك امين كمان اوي بحبك اوي بكل حاجه فيكي يروحي كامله من كل حاجه يحبيبتي بحبك بنكدك طبعا اللي عاجبني كدا كدا ما علينا ربنا يدومك ليا نعمه ي احلي نعمه شافتها عيني وتدومي ليا روحي وقلبي وفرحتي وام عيالي انشالله ي احلي واحده ف الدنيا دي عيونك اللي دوا لكل حاجه ف حياتي حرفيا وضحكتك اللي بتاخدني ف حته بعيده عن الكل شوفت معاكي كل حاجه حلوه كل سنه ونتي طيبه ينصي التاني بنكبر سوا يروحي",
 
-    startDate: "2025-05-28",
+    startDate:   "2025-05-28",   // تاريخ العداد (الحساب)
+    displayDate: "2025-05-26",   // التاريخ اللي بيظهر تحت "يوم ما قولتلك بحبك"
 
     photo1:    "IMG-20260419-WA0005.jpg",
     caption1:  "بحبك 💕",
@@ -309,7 +309,7 @@
   </div>
   <div class="start-date-card">
     <div class="start-date-title">يوم ما قولتلك بحبك 💕</div>
-    <div class="start-date-val"><span id="el-startdateVal"></span> 📅</div>
+    <div class="start-date-val"><span id="el-startDateVal"></span> 📅</div>
   </div>
   <button class="next-btn" onclick="goTo('page-gallery')">💝 next 💝</button>
 </div>
@@ -359,20 +359,20 @@
 <script>
   // ===== APPLY CONFIG =====
   window.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('el-name').textContent              = CONFIG.name;
-    document.getElementById('el-sub').textContent               = CONFIG.sub;
-    document.getElementById('el-msg').textContent               = CONFIG.loveMsg;
-    document.getElementById('el-startDateDisplay').textContent  = CONFIG.startDate.split('-').reverse().join('-');
-    document.getElementById('el-startDateVal').textContent      = CONFIG.startDate;
-    document.getElementById('el-photo1').src                    = CONFIG.photo1;
-    document.getElementById('el-cap1').textContent              = CONFIG.caption1;
-    document.getElementById('el-photo2').src                    = CONFIG.photo2;
-    document.getElementById('el-cap2').textContent              = CONFIG.caption2;
-    document.getElementById('el-f1').textContent                = CONFIG.msg1;
-    document.getElementById('el-f2').textContent                = CONFIG.msg2;
-    document.getElementById('el-f3').textContent                = CONFIG.msg3;
-    document.getElementById('musicTitle').textContent           = CONFIG.songTitle;
-    document.getElementById('audioEl').src                      = CONFIG.songFile;
+    document.getElementById('el-name').textContent             = CONFIG.name;
+    document.getElementById('el-sub').textContent              = CONFIG.sub;
+    document.getElementById('el-msg').textContent              = CONFIG.loveMsg;
+    document.getElementById('el-startDateDisplay').textContent = CONFIG.startDate.split('-').reverse().join('-');
+    document.getElementById('el-startDateVal').textContent     = CONFIG.displayDate;
+    document.getElementById('el-photo1').src                   = CONFIG.photo1;
+    document.getElementById('el-cap1').textContent             = CONFIG.caption1;
+    document.getElementById('el-photo2').src                   = CONFIG.photo2;
+    document.getElementById('el-cap2').textContent             = CONFIG.caption2;
+    document.getElementById('el-f1').textContent               = CONFIG.msg1;
+    document.getElementById('el-f2').textContent               = CONFIG.msg2;
+    document.getElementById('el-f3').textContent               = CONFIG.msg3;
+    document.getElementById('musicTitle').textContent          = CONFIG.songTitle;
+    document.getElementById('audioEl').src                     = CONFIG.songFile;
 
     if (CONFIG.profileImg) {
       document.getElementById('profilePicEl').innerHTML = '<img src="' + CONFIG.profileImg + '" alt="">';
